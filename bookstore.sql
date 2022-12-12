@@ -1,9 +1,9 @@
-CREATE TABLE Store (
+CREATE TABLE Stores (
     store_name VARCHAR(50) PRIMARY KEY NOT NULL,
     owner_name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Book (
+CREATE TABLE Books (
     isbn  CHAR(13) PRIMARY KEY NOT NULL,
     title VARCHAR(50) NOT NULL,
     genre VARCHAR(50) NOT NULL,
@@ -16,18 +16,18 @@ CREATE TABLE Book (
     num_bought_last_month INTEGER NOT NULL,
     store_name VARCHAR(50) NOT NULL,
     FOREIGN KEY (publisher_name)
-        REFERENCES Publisher (publisher_name),
+        REFERENCES Publishers (publisher_name),
     FOREIGN KEY (store_name)
-        REFERENCES Store (store_name)
+        REFERENCES Stores (store_name)
 );
 
-CREATE TABLE Order_Info (
+CREATE TABLE Orders (
     order_id INTEGER PRIMARY KEY NOT NULL,
     destination VARCHAR(50) NOT NULL,
     current_location VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Publisher (
+CREATE TABLE Publishers (
     publisher_name VARCHAR(50) PRIMARY KEY NOT NULL,
     address VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE Publisher (
     bank_account_num VARCHAR(17) NOT NULL
 );
 
-CREATE TABLE User_Info (
+CREATE TABLE Users (
     user_id INTEGER PRIMARY KEY NOT NULL,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
@@ -47,16 +47,16 @@ CREATE TABLE User_Orders (
     order_id INTEGER PRIMARY KEY NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (order_id)
-        REFERENCES Order (order_id),
+        REFERENCES Orders (order_id),
     FOREIGN KEY (user_id)
-        REFERENCES User (user_id)
+        REFERENCES Users (user_id)
 );
 
 CREATE TABLE Order_Books (
     order_id INTEGER PRIMARY KEY NOT NULL,
     isbn VARCHAR(50) NOT NULL,
     FOREIGN KEY (order_id)
-        REFERENCES Order (order_id),
+        REFERENCES Orders (order_id),
     FOREIGN KEY (isbn)
-        REFERENCES Book (isbn)
-)
+        REFERENCES Books (isbn)
+);
