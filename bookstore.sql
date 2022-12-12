@@ -4,7 +4,7 @@ CREATE TABLE Stores (
 );
 
 CREATE TABLE Books (
-    isbn  CHAR(13) PRIMARY KEY NOT NULL,
+    isbn  VARCHAR(13) PRIMARY KEY NOT NULL,
     title VARCHAR(50) NOT NULL,
     genre VARCHAR(50) NOT NULL,
     price DECIMAL(8, 2) NOT NULL,
@@ -31,12 +31,12 @@ CREATE TABLE Publishers (
     publisher_name VARCHAR(50) PRIMARY KEY NOT NULL,
     address VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    phone_num VARCHAR(11) NOT NULL,
-    bank_account_num VARCHAR(17) NOT NULL
+    phone_num VARCHAR(15) NOT NULL,
+    bank_account_num INTEGER NOT NULL
 );
 
 CREATE TABLE Users (
-    user_id INTEGER PRIMARY KEY NOT NULL,
+    user_id VARCHAR(50) PRIMARY KEY NOT NULL,
     email VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL,
     billing_info VARCHAR(50) NOT NULL,

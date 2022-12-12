@@ -1,0 +1,1 @@
+INSERT INTO Stores VALUES ("Look Inna Book", "Bob Smith");
