@@ -9,11 +9,11 @@ CREATE TABLE Books (
     genre VARCHAR(50) NOT NULL,
     price DECIMAL(8, 2) NOT NULL,
     num_of_pages INTEGER NOT NULL,
-    publisher_pay_percent DECIMAL (3, 2),
+    publisher_pay_percent DECIMAL (3, 2) NOT NULL,
     author_name VARCHAR(50) NOT NULL,
     publisher_name VARCHAR(50) NOT NULL,
     num_in_stock INTEGER NOT NULL,
-    num_bought_last_month INTEGER NOT NULL,
+    num_bought_last_month INTEGER,
     store_name VARCHAR(50) NOT NULL,
     FOREIGN KEY (publisher_name)
         REFERENCES Publishers (publisher_name),
